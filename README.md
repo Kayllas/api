@@ -50,6 +50,37 @@ Inicialmente será elaborado apenas o desenvolvimento da API Rest desse projeto.
       As seguintes regras de negócio devem ser validadas pelo sistema:
         - A exclusão não deve apagar os dados do médico, mas torná-lo como "inativo" no sistema.
 
+
+    - Cadastro de pacientes:
+      O sistema deve possuir uma funcionalidade de cadastro de pacientes, na qual as seguintes informações deverão ser preenchidas:
+        - Nome
+        - E-mail
+        -Telefone
+        - CPF
+      Endereço completo (logradouro, número, complemento, bairro, cidade, UF e CEP)
+      
+    - Listagem de pacientes:
+      O sistema deve possuir uma funcionalidade de listagem de pacientes, na qual as seguintes informações, de cada um dos pacientes cadastrados, deverão ser exibidas:
+        - Nome
+        - E-mail
+        - CPF
+      A listagem deve ser ordenada pelo nome do paciente, de maneira crescente, bem como ser paginada, trazendo 10 registros por página.
+
+    - Atualização de pacientes:
+      O sistema deve possuir uma funcionalidade de atualização de dados cadastrais de pacientes, na qual as seguintes informações poderão ser atualizadas:
+        - Nome
+        - Telefone
+        - Endereço
+      As seguintes regras de negócio devem ser validadas pelo sistema:
+        - Não permitir a alteração do e-mail do paciente;
+        - Não permitir a alteração do CPF do paciente.
+      Todas as informações são de preenchimento obrigatório, exceto o número e o complemento do endereço.
+
+    - Exclusão de pacientes:
+      O sistema deve possuir uma funcionalidade que permita a exclusão de pacientes cadastrados.
+      As seguintes regras de negócio devem ser validadas pelo sistema:
+        - A exclusão não deve apagar os dados do paciente, mas torná-lo como "inativo" no sistema.
+
 </details>
 
 🛠 Tecnologias
