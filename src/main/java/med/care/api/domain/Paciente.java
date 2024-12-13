@@ -2,8 +2,6 @@ package med.care.api.domain;
 
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -12,10 +10,9 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import med.care.api.domain.enumeration.Especialidade;
-import med.care.api.service.dto.DadosCadastroMedico;
+import med.care.api.service.dto.DadosAtualizacaoMedico;
+import med.care.api.service.dto.DadosAtualizacaoPaciente;
 import med.care.api.service.dto.DadosCadastroPaciente;
-import med.care.api.domain.Endereco;
 
 @Table(name = "pacientes")
 @Entity(name = "Paciente")
@@ -35,12 +32,33 @@ public class Paciente {
     @Embedded
     private Endereco endereco;
 
+    private Boolean ativo;
+
     public Paciente(DadosCadastroPaciente dados) {
         this.nome = dados.nome();
         this.email = dados.email();
         this.cpf = dados.cpf();
         this.telefone = dados.telefone();
         this.endereco = new Endereco(dados.endereco());
-        
     }
+
+    public void atualizarInformacoes(DadosAtualizacaoPaciente dados) {
+        if (dados.nome() != null) {
+            this.nome = dados.nome();
+        }
+        if (dados.telefone() != null) {
+            this.telefone = dados.telefone();
+        }
+        if (dados.endereco() != null) {
+            this.endereco.atualizarInformacoes(dados.endereco());
+        }
+        if (dados.ativo() != null) {
+        this.ativo = dados.ativo();
+        }
+    }
+
+    public void excluir() {
+        this.ativo=false;
+    }
+    
 }
