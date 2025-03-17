@@ -92,7 +92,9 @@ O projeto está dividido em duas partes principais: o **back-end** (API Rest) e 
  
 2. Compile e rode o servidor:
 
+```bash 
 ./mvnw spring-boot:run
+```
 
 3. A API estará disponível em http://localhost:8080.
 
@@ -100,13 +102,22 @@ Front-end:
 
 Acesse a pasta my-frontend/:
 
+```bash 
 cd my-frontend
+```
+
 Instale as dependências:
 
+```bash 
 npm install
+```
+
 Rode a aplicação:
 
+```bash 
 npm run dev
+```
+
 A interface estará disponível em http://localhost:5173.
 
 📝 Licença
