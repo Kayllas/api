@@ -1,4 +1,7 @@
+# Arquivos gerais
 HELP.md
+
+# Maven (backend)
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
@@ -31,3 +34,22 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Node.js (frontend)
+frontend/node_modules/
+
+# Build do frontend
+frontend/dist/
+
+# Arquivos de cache e temporários do frontend
+frontend/.cache/
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# Arquivos de log
+*.log
+
+# Arquivos temporários
+*.tmp
