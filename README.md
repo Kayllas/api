@@ -4,7 +4,7 @@
 
 Med.care é uma clínica médica fictícia que precisa de um aplicativo para gestão de consultas. O aplicativo deve possuir funcionalidades que permitam o cadastro de médicos e de pacientes, e também o agendamento e cancelamento de consultas.
 
-Inicialmente será elaborado o desenvolvimento da **API Rest** do projeto. A partir de agora, a aplicação também possui um **front-end** que se comunica com a API para exibir médicos e pacientes, com a possibilidade de navegar entre as duas views.
+Inicialmente foi elaborado o desenvolvimento da **API Rest** do projeto. A partir de agora, a aplicação também possui um **front-end** que se comunica com a API para exibir médicos e pacientes, com a possibilidade de navegar entre as duas views.
 
 ⚙️ **Funcionalidades**
 
@@ -81,60 +81,34 @@ As seguintes tecnologias foram utilizadas no desenvolvimento da API Rest e do Fr
 
 O projeto está dividido em duas partes principais: o **back-end** (API Rest) e o **front-end** (aplicativo React). Ambas as partes são gerenciadas no mesmo repositório.
 
-- **Diretório `backend/`**: Contém o código da API Rest.
-- **Diretório `frontend/`**: Contém o código do aplicativo React para a interface.
+- **Diretório raiz**: Contém o código da API Rest.
+- **Diretório `my-frontend/`**: Contém o código do aplicativo React para a interface.
 
 ### Como rodar o projeto
 
 **Back-end:**
 
-1. Acesse a pasta `backend/`:
-   ```bash
-   cd backend
-
+1. Acesse a pasta raiz:
+ 
 2. Compile e rode o servidor:
 
-bash
-Copiar
-Editar
 ./mvnw spring-boot:run
 
 3. A API estará disponível em http://localhost:8080.
 
 Front-end:
 
-Acesse a pasta frontend/:
+Acesse a pasta my-frontend/:
 
-bash
-Copiar
-Editar
-cd frontend
+cd my-frontend
 Instale as dependências:
 
-bash
-Copiar
-Editar
 npm install
 Rode a aplicação:
 
-bash
-Copiar
-Editar
 npm run dev
 A interface estará disponível em http://localhost:5173.
 
 📝 Licença
 
 Projeto base desenvolvido por Alura (cursos de formação) e adaptado para versão de uso pessoal.
-
-ruby
-Copiar
-Editar
-
-### Alterações feitas:
-1. **Inclusão do Front-end**: Agora, o README inclui detalhes sobre o front-end em React.
-2. **Tecnologias**: Adicionei as tecnologias usadas no front-end (React, Vite, Axios, TypeScript).
-3. **Estrutura do Projeto**: Incluí a explicação sobre a estrutura de diretórios, mencionando as pastas `backend/` e `frontend/`.
-4. **Como Rodar o Projeto**: Atualizei as instruções para rodar tanto o back-end quanto o front-end.
-
-Esse README agora reflete que você tem tanto o back-end quanto o front-end no mesmo repositório e como configurá-los.
