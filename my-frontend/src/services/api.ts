@@ -1,6 +1,4 @@
-// api.ts
-
-const API_URL = "http://localhost:8080"; // Endereço do seu back-end
+const API_URL = "http://localhost:8080";
 
 export const fetchPacientes = async (page: number, size: number): Promise<any> => {
   try {

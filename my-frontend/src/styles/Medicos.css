@@ -1,0 +1,16 @@
+.medicos-container {
+    background-color: #f4f4f9;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .medicos-container h1 {
+    color: #333;
+    font-size: 2rem;
+  }
+  
+  .medicos-container p {
+    color: #666;
+    font-size: 1.2rem;
+  }
+  

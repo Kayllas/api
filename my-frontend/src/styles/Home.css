@@ -1,0 +1,97 @@
+.home-container {
+  background-color: #f0f8ff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.home-title01 {
+  font-size: 5rem;
+  font-weight: bold;
+  color: #00796b;
+  margin-bottom: 20px;
+}
+
+.home-title02 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #00796b;
+  margin-bottom: 20px;
+}
+
+.home-content {
+  text-align: center;
+}
+
+.home-subtitle {
+  font-size: 1.5rem;
+  color: #4caf50;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.home-button {
+  padding: 12px 25px;
+  font-size: 1.2rem;
+  background-color: #00796b;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin: 10px;
+}
+
+.home-button:hover {
+  background-color: #004d40;
+  transform: scale(1.05);
+}
+
+.home-logo {
+  width: auto;
+  height: auto;
+  margin-bottom: 5px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: logoFadeIn 1.5s ease-out forwards;
+}
+
+@keyframes logoFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-info {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+  font-size: 1rem;
+  color: #333;
+  text-align: bottom;
+  flexbox: 1;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
