@@ -8,16 +8,17 @@ Inicialmente foi elaborado o desenvolvimento da **API Rest** do projeto. A parti
 
 ⚙️ **Funcionalidades**
 
-- [x] CRUD de médicos
-- [x] CRUD de pacientes
-- [ ] Login com autenticação
-- [ ] Recuperação de senha
-- [ ] Agendamento de consultas
-- [ ] Cancelamento de consultas
-- [x] Interface para listar médicos
-- [x] Interface para listar pacientes
+- [x] CRUD de médicos  
+- [x] CRUD de pacientes  
+- [ ] Login com autenticação  
+- [ ] Recuperação de senha  
+- [ ] Agendamento de consultas  
+- [ ] Cancelamento de consultas  
+- [x] Interface para listar médicos  
+- [x] Interface para listar pacientes  
+- [x] Documentação da API com Swagger
 
-<details> <summary> Documentação das funcionalidades da aplicação:</summary>
+<details> <summary>Documentação das funcionalidades da aplicação:</summary>
 
 - **Cadastro de médicos:** O sistema deve possuir uma funcionalidade de cadastro de médicos, onde as seguintes informações deverão ser preenchidas:
   - Nome
@@ -28,7 +29,7 @@ Inicialmente foi elaborado o desenvolvimento da **API Rest** do projeto. A parti
   - Endereço completo (logradouro, número, complemento, bairro, cidade, UF e CEP)
   Todas as informações são de preenchimento obrigatório, exceto o número e o complemento do endereço.
 
-- **Listagem de médicos:** O sistema deve permitir listar os médicos cadastrados, com as seguintes informações de cada médico:
+- **Listagem de médicos:** O sistema permite listar os médicos cadastrados, com as seguintes informações de cada médico:
   - Nome
   - E-mail
   - CRM
@@ -58,6 +59,22 @@ Inicialmente foi elaborado o desenvolvimento da **API Rest** do projeto. A parti
 
 </details>
 
+🧾 **Documentação da API (Swagger)**
+
+Após rodar a aplicação, você pode acessar a interface do Swagger UI no seguinte endereço:
+
+```
+http://localhost:8080/swagger-ui.html
+```
+
+Ou:
+
+```
+http://localhost:8080/swagger-ui/index.html
+```
+
+A documentação permite visualizar e testar os endpoints diretamente pelo navegador.
+
 🛠 **Tecnologias**
 
 As seguintes tecnologias foram utilizadas no desenvolvimento da API Rest e do Front-end:
@@ -70,6 +87,7 @@ As seguintes tecnologias foram utilizadas no desenvolvimento da API Rest e do Fr
   - Hibernate
   - Flyway
   - Lombok
+  - Swagger OpenAPI
 
 - **Front-end:**
   - React
@@ -89,16 +107,16 @@ O projeto está dividido em duas partes principais: o **back-end** (API Rest) e 
 **Back-end:**
 
 1. Acesse a pasta raiz:
- 
+
 2. Compile e rode o servidor:
 
 ```bash 
 ./mvnw spring-boot:run
 ```
 
-3. A API estará disponível em http://localhost:8080.
+3. A API estará disponível em http://localhost:8080
 
-Front-end:
+**Front-end:**
 
 Acesse a pasta my-frontend/:
 
@@ -118,8 +136,8 @@ Rode a aplicação:
 npm run dev
 ```
 
-A interface estará disponível em http://localhost:5173.
+A interface estará disponível em http://localhost:5173
 
-📝 Licença
+📝 **Licença**
 
 Projeto base desenvolvido por Alura (cursos de formação) e adaptado para versão de uso pessoal.
