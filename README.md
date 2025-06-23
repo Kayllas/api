@@ -1,16 +1,16 @@
-# Med.care
+# Med.care 🏥
 
-💻 **Sobre o projeto**
+## 💻 Sobre o projeto
 
-Med.care é uma clínica médica fictícia que precisa de um aplicativo para gestão de consultas. O aplicativo deve possuir funcionalidades que permitam o cadastro de médicos e de pacientes, e também o agendamento e cancelamento de consultas.
+Med.care é uma clínica médica fictícia que precisa de um sistema para gestão de consultas. O sistema permite o cadastro de médicos, pacientes e futuramente o agendamento de consultas. A aplicação é composta por uma **API REST em Java com Spring Boot** e um **front-end em React**.
 
-Inicialmente foi elaborado o desenvolvimento da **API Rest** do projeto. A partir de agora, a aplicação também possui um **front-end** que se comunica com a API para exibir médicos e pacientes, com a possibilidade de navegar entre as duas views.
+---
 
-⚙️ **Funcionalidades**
+## ⚙️ Funcionalidades
 
 - [x] CRUD de médicos  
 - [x] CRUD de pacientes  
-- [ ] Login com autenticação  
+- [x] Login com autenticação  
 - [ ] Recuperação de senha  
 - [ ] Agendamento de consultas  
 - [ ] Cancelamento de consultas  
@@ -18,126 +18,100 @@ Inicialmente foi elaborado o desenvolvimento da **API Rest** do projeto. A parti
 - [x] Interface para listar pacientes  
 - [x] Documentação da API com Swagger
 
-<details> <summary>Documentação das funcionalidades da aplicação:</summary>
+<details>
+<summary>📄 Detalhes técnicos das funcionalidades</summary>
 
-- **Cadastro de médicos:** O sistema deve possuir uma funcionalidade de cadastro de médicos, onde as seguintes informações deverão ser preenchidas:
-  - Nome
-  - E-mail
-  - Telefone
-  - CRM
-  - Especialidade (Ortopedia, Cardiologia, Ginecologia ou Dermatologia)
-  - Endereço completo (logradouro, número, complemento, bairro, cidade, UF e CEP)
-  Todas as informações são de preenchimento obrigatório, exceto o número e o complemento do endereço.
+### Médicos
+- Cadastro (nome, e-mail, telefone, CRM, especialidade, endereço)
+- Listagem com paginação
+- Atualização (exceto e-mail, CRM e especialidade)
+- Inativação lógica
 
-- **Listagem de médicos:** O sistema permite listar os médicos cadastrados, com as seguintes informações de cada médico:
-  - Nome
-  - E-mail
-  - CRM
-  - Especialidade
-  A listagem será ordenada pelo nome e será paginada.
-
-- **Atualização de médicos:** O sistema permite atualizar dados como nome, telefone e endereço, mas não permite alterar o e-mail, CRM ou especialidade.
-
-- **Exclusão de médicos:** O sistema marca médicos como "inativos", sem apagá-los do banco de dados.
-
-- **Cadastro de pacientes:** O sistema também possui uma funcionalidade de cadastro de pacientes, onde as seguintes informações devem ser preenchidas:
-  - Nome
-  - E-mail
-  - Telefone
-  - CPF
-  - Endereço completo
-
-- **Listagem de pacientes:** O sistema lista os pacientes cadastrados, com as seguintes informações:
-  - Nome
-  - E-mail
-  - CPF
-  A listagem será ordenada pelo nome e será paginada.
-
-- **Atualização de pacientes:** O sistema permite atualizar dados de pacientes, mas não permite alterar o e-mail ou CPF.
-
-- **Exclusão de pacientes:** Similar ao cadastro de médicos, os pacientes são marcados como "inativos".
+### Pacientes
+- Cadastro (nome, e-mail, telefone, CPF, endereço)
+- Listagem com paginação
+- Atualização (exceto e-mail e CPF)
+- Inativação lógica
 
 </details>
 
-🧾 **Documentação da API (Swagger)**
+---
 
-Após rodar a aplicação, você pode acessar a interface do Swagger UI no seguinte endereço:
+## 🐳 Como rodar com Docker
 
-```
-http://localhost:8080/swagger-ui.html
-```
+### Pré-requisitos:
+- Docker + Docker Compose instalados
 
-Ou:
-
-```
-http://localhost:8080/swagger-ui/index.html
-```
-
-A documentação permite visualizar e testar os endpoints diretamente pelo navegador.
-
-🛠 **Tecnologias**
-
-As seguintes tecnologias foram utilizadas no desenvolvimento da API Rest e do Front-end:
-
-- **Back-end:**
-  - Java 17
-  - Spring Boot 3
-  - Maven
-  - MySQL
-  - Hibernate
-  - Flyway
-  - Lombok
-  - Swagger OpenAPI
-
-- **Front-end:**
-  - React
-  - Vite
-  - Axios (para chamadas HTTP)
-  - TypeScript
-
-📁 **Estrutura do projeto**
-
-O projeto está dividido em duas partes principais: o **back-end** (API Rest) e o **front-end** (aplicativo React). Ambas as partes são gerenciadas no mesmo repositório.
-
-- **Diretório raiz**: Contém o código da API Rest.
-- **Diretório `my-frontend/`**: Contém o código do aplicativo React para a interface.
-
-### Como rodar o projeto
-
-**Back-end:**
-
-1. Acesse a pasta raiz:
-
-2. Compile e rode o servidor:
-
-```bash 
-./mvnw spring-boot:run
+### 1. Clone o repositório
+```bash
+git clone https://github.com/seu-usuario/medcare.git
+cd medcare
 ```
 
-3. A API estará disponível em http://localhost:8080
+### 2. Suba os containers
+```bash
+docker-compose up --build
+```
 
-**Front-end:**
+Isso iniciará:
+- O banco MySQL no container `mysql-db`
+- A aplicação Java no container `medcare-api`
 
-Acesse a pasta my-frontend/:
+### 3. Acesse no navegador:
+- API: `http://localhost:8080`
+- Swagger: `http://localhost:8080/swagger-ui.html`
 
-```bash 
+---
+
+## 🌐 Front-end (opcional)
+
+Se quiser rodar a interface React localmente:
+
+```bash
 cd my-frontend
-```
-
-Instale as dependências:
-
-```bash 
 npm install
-```
-
-Rode a aplicação:
-
-```bash 
 npm run dev
 ```
 
-A interface estará disponível em http://localhost:5173
+Interface disponível em `http://localhost:5173`
 
-📝 **Licença**
+---
 
-Projeto base desenvolvido por Alura (cursos de formação) e adaptado para versão de uso pessoal.
+## 🧾 Documentação Swagger
+
+Acesse [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html) para explorar a API e testar os endpoints diretamente no navegador.
+
+---
+
+## 🧰 Tecnologias Utilizadas
+
+### Back-end:
+- Java 17
+- Spring Boot 3
+- MySQL 8
+- Hibernate + Flyway
+- Lombok
+- Swagger OpenAPI
+- Docker
+
+### Front-end:
+- React + Vite + TypeScript
+- Axios
+
+---
+
+## 📁 Estrutura
+
+```
+/api            --> código Java (API)
+my-frontend/    --> código React (interface)
+docker-compose.yml
+Dockerfile
+README.md
+```
+
+---
+
+## 📝 Licença
+
+Projeto baseado em formação da [Alura](https://www.alura.com.br/), adaptado para fins de estudo pessoal.

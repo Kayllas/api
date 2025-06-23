@@ -1,0 +1,4 @@
+my-frontend/node_modules
+target
+.git
+*.log
