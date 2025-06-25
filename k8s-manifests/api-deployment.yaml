@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: medcare-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: medcare-api
+  template:
+    metadata:
+      labels:
+        app: medcare-api
+    spec:
+      containers:
+        - name: medcare-api
+          image: medcare-api:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:mysql://mysql:3306/medcare_api
+            - name: SPRING_DATASOURCE_USERNAME
+              value: root
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: root@1

@@ -115,3 +115,52 @@ README.md
 ## 📝 Licença
 
 Projeto baseado em formação da [Alura](https://www.alura.com.br/), adaptado para fins de estudo pessoal.
+
+---
+
+### 🚀 Como rodar no Kubernetes (Minikube)
+
+> Para rodar localmente usando Kubernetes, siga os passos abaixo:
+
+#### 1. Pré-requisitos
+- [Minikube](https://minikube.sigs.k8s.io/docs/start/)
+- Docker
+
+#### 2. Inicie o Minikube
+```bash
+minikube start
+```
+
+#### 3. Configure o Docker local para usar o ambiente do Minikube
+```bash
+eval $(minikube docker-env)
+```
+
+#### 4. Construa a imagem local da API
+```bash
+docker build -t medcare-api:latest .
+```
+
+#### 5. Aplique os manifests Kubernetes
+```bash
+kubectl apply -f k8s.yml
+```
+
+#### 6. Acompanhe os pods
+```bash
+kubectl get pods -w
+```
+
+#### 7. Acesse o sistema
+```bash
+minikube service medcare-api
+```
+Esse comando abrirá a interface da API no navegador com o IP e a porta atribuídos.
+
+#### 8. (Opcional) Popular banco de dados
+Se desejar importar dados iniciais:
+```bash
+kubectl cp medcare_api_usuarios.sql mysql-pod:/tmp/usuarios.sql
+kubectl exec -it mysql-pod -- bash
+mysql -u root -p'root@1' medcare_api < /tmp/usuarios.sql
+```

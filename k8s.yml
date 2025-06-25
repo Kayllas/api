@@ -1,0 +1,107 @@
+# ConfigMap com variáveis da aplicação
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: medcare-config
+data:
+  SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/medcare_api
+  SPRING_DATASOURCE_USERNAME: root
+  SPRING_DATASOURCE_PASSWORD: root@1
+
+---
+# Secret (opcional, não criptografa, apenas oculta)
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql-secret
+type: Opaque
+stringData:
+  MYSQL_ROOT_PASSWORD: root@1
+
+---
+# MySQL Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:8
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: MYSQL_ROOT_PASSWORD
+            - name: MYSQL_DATABASE
+              value: medcare_api
+          ports:
+            - containerPort: 3306
+          volumeMounts:
+            - name: mysql-storage
+              mountPath: /var/lib/mysql
+      volumes:
+        - name: mysql-storage
+          emptyDir: {}  # Troque por PersistentVolumeClaim para ambiente real
+
+---
+# MySQL Service (ClusterIP)
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+spec:
+  ports:
+    - port: 3306
+  selector:
+    app: mysql
+
+---
+# API Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: medcare-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: medcare-api
+  template:
+    metadata:
+      labels:
+        app: medcare-api
+    spec:
+      containers:
+        - name: medcare-api
+          image: medcare-api:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: medcare-config
+
+---
+# API Service (LoadBalancer para expor externamente)
+apiVersion: v1
+kind: Service
+metadata:
+  name: medcare-api
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 8080
+  selector:
+    app: medcare-api
